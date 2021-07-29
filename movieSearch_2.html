@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Catamaran&display=swap"
+      rel="stylesheet"
+    />
+    <title>Movie Database</title>
+  </head>
+  <body>
+    <div class="main">
+      <h2>Movie Database</h2>
+      <input
+        type="text"
+        placeholder="Enter movie title"
+        onkeypress="movieData(event)"
+        id="inp"
+      />
+
+      <div id="details"></div>
+    </div>
+  </body>
+</html>
+
+<script>
+  // key: 29e61f12
+
+  async function movieData(e) {
+    if (e.key == "Enter") {
+      var movie = document.getElementById("inp").value;
+      var details = document.getElementById("details");
+      var div = document.createElement("div");
+      details.innerHTML = null;
+
+      var Title = document.createElement("p");
+      var Year = document.createElement("p");
+      var Runtime = document.createElement("p");
+      var Genre = document.createElement("p");
+      var Director = document.createElement("p");
+      var Language = document.createElement("p");
+      var imdbRating = document.createElement("p");
+       var Poster = document.createElement("img");
+
+      try {
+        var response = await fetch(
+          `http://www.omdbapi.com/?t=${movie}&apikey=29e61f12`
+        );
+
+        var data = await response.json();
+        console.log(data);
+
+        if (data.Response === "False") {
+          var img = document.createElement("img");
+          img.src =
+            "https://media.giphy.com/media/8L0Pky6C83SzkzU55a/giphy.gif";
+          details.append(img);
+        } else {
+
+          Poster.src=data.Poster;
+          Title.innerHTML = ` Title : ${data.Title}`;
+          Year.innerHTML = `Year : ${data.Year}`;
+          Runtime.innerHTML = `Runtime : ${data.Runtime}`;
+          Genre.innerHTML = `Genre : ${data.Genre}`;
+          Director.innerHTML = `Director : ${data.Director}`;
+          Language.innerHTML = `Language : ${data.Language}`;
+          imdbRating.innerHTML = `Rating : ${data.imdbRating}`;
+
+          div.append(
+            Poster,
+            Title,
+            imdbRating,
+            Year,
+            Runtime,
+            Genre,
+            Director,
+            Language
+          );
+          details.append(div);
+        }
+      } catch (err) {
+        console.log("movie nahi mili");
+      }
+    }
+  }
+</script>

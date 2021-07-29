@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "PT Mono", monospace;
+  margin-bottom: 10vh;
+
+  background-color: #0c111b;
+  color: white;
+}
+
+.head {
+  /* border: 2px solid green; */
+  /* border-bottom: 2px solid rgb(218, 213, 213); */
+  margin-bottom: 2vh;
+  background-color: #001233;
+}
+
+h2 {
+  font-family: "Catamaran", sans-serif;
+  font-size: xxx-large;
+}
+
+.main {
+  /* border: 2px solid red; */
+  text-align: center;
+}
+
+input {
+  width: 20%;
+  height: 8vh;
+  text-align: center;
+  font-size: x-large;
+  background-color: white;
+
+  /* border-radius: 10px; */
+  margin: 10px auto;
+  border: 0px solid rgb(150, 146, 146);
+  /* box-shadow:0 5px 8px 0 rgba(255, 251, 251, 0.2),0 7px 20px 0 rgba(0,0,0,0.17); */
+}
+input:focus {
+  outline: 0.01rem solid;
+}
+
+/* input:hover{
+    border: none !important;
+} */
+
+.content{
+    /* border: 2px solid white; */
+    width: 50%;
+    margin: auto;
+    position: relative;
+}
+
+#details,#plot{
+  /* border: 2px solid blue; */
+  width: 100%;
+  margin: auto;
+  position: absolute;
+
+}
+
+#plot{
+    display: none;
+}
+
+#details div {
+  border: 1px solid white;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  background-color: #141c2b;
+}
+
+#plot div{
+      border: 1px solid white;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  background-color: #141c2b;
+}
+
+#details div img {
+  margin-bottom: 20px;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+
+
+#details div p {
+  color: #e19809;
+  /* font-weight: bold; */
+}
+
+.feature {
+  /* font-weight: bold; */
+  color: white;
+}
+
+.recom {
+  color: black;
+  /* outline: solid; */
+  /* outline-color: white; */
+  background-color: white;
+  /* border-radius: 20px; */
+  padding: 5px;
+ margin: auto;
+  margin-bottom: 15px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+button{
+    position: absolute;
+    left: 25%;
+
+    padding: 10px;
+    background-color: white;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* #btn1{
+left: 25%;
+}
+
+#btn2{
+right: 25%;
+} */
